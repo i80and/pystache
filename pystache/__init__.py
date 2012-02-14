@@ -1,7 +1,7 @@
 try:
-	unistr = unicode
+    unistr = unicode
 except NameError:
-	unistr = str
+    unistr = str
 
 from pystache.template import Template
 from pystache.view import View

@@ -2,9 +2,9 @@ import os
 import pystache
 
 try:
-	basestring = basestring
+    basestring = basestring
 except NameError:
-	basestring = str
+    basestring = str
 
 class Loader(object):
     
