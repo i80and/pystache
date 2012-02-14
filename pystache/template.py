@@ -3,6 +3,7 @@ import cgi
 import collections
 import os
 import copy
+import pystache
 
 try:
     import markupsafe
@@ -10,8 +11,8 @@ try:
     literal = markupsafe.Markup
 
 except ImportError:
-    escape = lambda x: cgi.escape(unicode(x))
-    literal = unicode
+    escape = lambda x: cgi.escape(pystache.unistr(x))
+    literal = pystache.unistr
 
 
 class Modifiers(dict):
@@ -46,7 +47,7 @@ class Template(object):
     modifiers = Modifiers()
 
     def __init__(self, template=None, context=None, **kwargs):
-        from view import View
+        from .view import View
 
         self.template = template
 

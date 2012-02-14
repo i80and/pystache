@@ -1,4 +1,10 @@
 import os
+import pystache
+
+try:
+	basestring = basestring
+except NameError:
+	basestring = str
 
 class Loader(object):
     
@@ -40,7 +46,7 @@ class Loader(object):
         try:
             template = f.read()
             if self.template_encoding:
-                template = unicode(template, self.template_encoding)
+                template = pystache.unistr(template, self.template_encoding)
         finally:
             f.close()
         

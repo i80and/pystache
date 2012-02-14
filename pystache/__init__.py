@@ -1,3 +1,8 @@
+try:
+	unistr = unicode
+except NameError:
+	unistr = str
+
 from pystache.template import Template
 from pystache.view import View
 from pystache.loader import Loader
